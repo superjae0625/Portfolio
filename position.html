@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .outer {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 20px;
+        background: green;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: relative;
+      }
+      .inner {
+        width: 100%;
+        height: 50%;
+      }
+      .inner1 {
+        background-color: blue;
+      }
+      .inner2 {
+        background-color: yellow;
+      }
+      .box1 .inner1 {
+        position: relative;
+        /* static is the defaul value.
+          relative: nothing happens for top/left/right/bottom with static*/
+        top: 30px;
+        left: 100px;
+      }
+      .box2 .inner1 {
+        position: absolute;
+        /* absolute: 근접한 부모중에 기본깂이 static이 아닌 부모의 기준에서 움직임
+        (if box position is not retative => box? no -> outer? no -> body)*/
+        top: 30px;
+        left: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="box box1">
+        <div class="inner inner1">inner1</div>
+        <div class="inner inner2">inner2</div>
+      </div>
+    </div>
+    <div class="outer">
+      <div class="box box2">
+        <div class="inner inner1">inner1</div>
+        <div class="inner inner2">inner2</div>
+      </div>
+    </div>
+  </body>
+</html>
