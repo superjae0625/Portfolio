@@ -11,3 +11,17 @@ document.addEventListener('scroll', () => {
         navbar.classList.remove('navbar--dark');
     }
 });
+
+//Handle scrolling when tapping on the navbar menu
+const navbarMenu = document.querySelector('.navbar__menu');
+navbarMenu.addEventListener('click', (event) => {
+    const target = event.target;
+    const link = target.dataset.link;
+    if (link == null) {
+        return;
+    }
+    console.log(event.target.dataset.link)
+    //null이 아닐 때만 출력(id가 클릭이 될 때만 출력/link가 있는경우만 출력)
+    const scrollTo = document.querySelector(link);
+    scrollTo.scrollIntoView({behavior: "smooth"});
+});
