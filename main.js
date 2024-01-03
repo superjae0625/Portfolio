@@ -3,8 +3,8 @@
 const navbar = document.querySelector("#navbar");
 const navbarHeight = navbar.getBoundingClientRect().height;
 document.addEventListener("scroll", () => {
-    console.log(window.scrollY);
-    console.log(`navbarHeight: ${navbarHeight}`);
+    // console.log(window.scrollY);
+    // console.log(`navbarHeight: ${navbarHeight}`);
     if (window.scrollY > navbarHeight) {
         navbar.classList.add("navbar--dark");
     } else {
@@ -17,6 +17,8 @@ const navbarMenu = document.querySelector(".navbar__menu");
 navbarMenu.addEventListener("click", (event) => {
     const target = event.target;
     const link = target.dataset.link;
+    console.log(target);
+    console.log(link);
     if (link == null) {
         return;
     }
@@ -75,13 +77,17 @@ workBtnContainer.addEventListener("click", (e) => {
     active.classList.remove("selected");
     const target =
         e.target.nodeName === "BUTTON" ? e.target : e.target.parentNode;
+    // console.log(e.target);
+    // console.log(e.target.parentNode);
+    // console.log(target);
     // click된 것이 버튼이면 e.target을 쓰고 아니면 span을 쓴다
     target.classList.add("selected");
 
+    //애니메이션은 각 프로젝트를 담고있는 상자에다가 줌
     projectContainer.classList.add("anime-out");
     setTimeout(() => {
         projects.forEach((project) => {
-            console.log(project.dataset.type);
+            // console.log(project.dataset.type);
             if (filter === "*" || filter === project.dataset.type) {
                 project.classList.remove("invisible");
             } else {
